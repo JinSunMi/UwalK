@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "99734169161",
+    "project_id": "uwalk-dc66b",
+    "storage_bucket": "uwalk-dc66b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99734169161:android:de2d3ad2c6c54734948198",
+        "android_client_info": {
+          "package_name": "com.mirim.uwalk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99734169161-fk64hgvn9vmh5e8pfos87j29ha83b47r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mirim.uwalk",
+            "certificate_hash": "51d99f756c7dba45d28cbd4d3fa05c928289b0cd"
+          }
+        },
+        {
+          "client_id": "99734169161-89s438ojrd1trpdej05g6u3eom8ekfrg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARMPlofFG1V6rM-wSsMluzPvZBAG-dYFQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99734169161-89s438ojrd1trpdej05g6u3eom8ekfrg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
