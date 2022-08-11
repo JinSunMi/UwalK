@@ -50,6 +50,10 @@ class LoginActivity : AppCompatActivity() {
             val signInIntent = mGoogleSignInClient.signInIntent
             resultLauncher.launch(signInIntent)
         }
+
+        binding.btnSignIn.setOnClickListener {
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+        }
     }
     fun handleSignInResult(completedTask: Task<GoogleSignInAccount>){
         try {
