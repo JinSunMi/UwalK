@@ -3,11 +3,274 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="donate"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/toolbar" />
+
+    <ScrollView
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main"
+                android:textSize="48sp"
+                android:text="57,390"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="16dp"
+                android:textStyle="bold"
+                android:id="@+id/txt_total_step" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray4"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toRightOf="@id/txt_total_step"
+                app:layout_constraintBottom_toBottomOf="@id/txt_total_step"
+                android:text="steps"
+                android:layout_marginLeft="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_total_step"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@color/gray5"
+                android:id="@+id/grid_sun"
+                android:orientation="horizontal" />
+
+            <!--
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_total_step"
+                android:id="@+id/grid_sun"
+                android:columnCount="5"
+                android:rowCount="4">
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/icon_sun_stroke_gray" />
+            </GridView>
+            -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grid_sun"
+                android:layout_marginTop="20dp"
+                android:background="@color/gray6"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_donate_lantern"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/background_14dp"
+                android:backgroundTint="@color/beige1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grid_sun"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:id="@+id/txt_lantern_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Solar Lantern"
+                    android:textColor="@color/main"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100,000 steps"
+                    android:textColor="@color/beige2"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="@id/txt_lantern_name"
+                    app:layout_constraintTop_toBottomOf="@id/txt_lantern_name" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="116dp"
+                    android:layout_marginRight="48dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/image_lantern"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <Button
+                    android:id="@+id/btn_donate_lantern"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/background_26dp"
+                    android:paddingLeft="27dp"
+                    android:paddingRight="27dp"
+                    android:text="Donate"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/background_14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_donate_lantern"
+                android:backgroundTint="@color/beige1"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Solar Streetlight"
+                    android:textColor="@color/main"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:id="@+id/txt_streetlight_name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200,000 steps"
+                    android:textSize="14sp"
+                    android:textColor="@color/beige2"
+                    app:layout_constraintTop_toBottomOf="@id/txt_streetlight_name"
+                    app:layout_constraintLeft_toLeftOf="@id/txt_streetlight_name" />
+                <ImageView
+                    android:layout_width="77dp"
+                    android:layout_height="137dp"
+                    android:src="@drawable/image_streetlight"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="48dp"
+                    android:layout_marginBottom="4dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Donate"
+                    android:background="@drawable/background_26dp"
+                    android:paddingLeft="27dp"
+                    android:paddingRight="27dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:id="@+id/btn_donate_streetlight"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
