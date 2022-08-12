@@ -28,7 +28,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/background_14dp"
         android:backgroundTint="@color/white"
-        android:elevation="2dp" >
+        app:elevation="5dp" >
         <ImageView
             android:layout_width="56dp"
             android:layout_height="56dp"

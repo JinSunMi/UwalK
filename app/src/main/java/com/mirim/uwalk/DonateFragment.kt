@@ -1,5 +1,7 @@
 package com.mirim.uwalk
 
+import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,11 +26,15 @@ class DonateFragment: Fragment() {
             binding.gridSun.addView(makeSunView(i))
         }
 
+        binding.toolbar.imageToolbarProfile.setOnClickListener {
+            startActivity(Intent(context, MypageActivity::class.java))
+        }
+
         return view
     }
     fun makeSunView(i: Int): View {
         val sun = ImageView(context)
-        sun.layoutParams = ViewGroup.LayoutParams(36, 36)
+        sun.layoutParams = ViewGroup.LayoutParams((36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt(), (36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt())
         if(i == 9 || i == 19) {
             sun.setImageResource(R.drawable.icon_sun_stroke_main)
         }
