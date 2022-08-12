@@ -54,6 +54,10 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSignIn.setOnClickListener {
             startActivity(Intent(applicationContext, MainActivity::class.java))
         }
+
+        binding.txtSignUp.setOnClickListener {
+            startActivity(Intent(applicationContext, SignupActivity::class.java))
+        }
     }
     fun handleSignInResult(completedTask: Task<GoogleSignInAccount>){
         try {
