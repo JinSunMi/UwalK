@@ -38,17 +38,24 @@ class SignupActivity : AppCompatActivity() {
     private fun startSignUp(email: String, password: String) {
         auth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
-        firebaseReference = firebaseDatabase.reference.child("user")
+        firebaseReference = firebaseDatabase.getReference()
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful) {
                 val user = auth.currentUser
                 val userEmail = user?.email
                 val userId = user!!.uid
-                val userName = binding.upEditName
+                val userName = binding.upEditName.text.toString()
 
-                firebaseReference.push().setValue(userId)
-//                firebaseReference.child(userId).child("email").setValue(userEmail)
-//                firebaseReference.child(userId).child("name").setValue("namename")
+                firebaseReference = firebaseReference.child("user")
+                firebaseReference.setValue(userId)
+                firebaseReference.child(userId).child("email").setValue(userEmail)
+                firebaseReference.child(userId).child("name").setValue(userName)
+                firebaseReference.child(userId).child("steps").setValue(0)
+                firebaseReference.child(userId).child("lantern").setValue(0)
+                firebaseReference.child(userId).child("streetlight").setValue(0)
+
+                User.user.email = userEmail!!
+                User.user.name = userName
 
                 Toast.makeText(applicationContext, "success", Toast.LENGTH_SHORT).show()
             }
