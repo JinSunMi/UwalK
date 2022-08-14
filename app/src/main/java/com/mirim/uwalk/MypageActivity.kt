@@ -18,5 +18,10 @@ class MypageActivity : AppCompatActivity() {
         binding.toolbar.btnBack.setOnClickListener {
             finish()
         }
+
+        binding.txtProfileEmail.text = User.user.email
+        binding.txtProfileName.text = User.user.name
+        binding.txtProfileLantern.text = User.user.lantern.toString()
+        binding.txtProfileStreetlight.text = User.user.streetlight.toString()
     }
 }

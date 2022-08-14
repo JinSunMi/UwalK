@@ -18,13 +18,19 @@ import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.*
 import com.mirim.uwalk.databinding.ActivityLoginBinding
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     lateinit var auth: FirebaseAuth
     lateinit var googleSignInClient: GoogleSignInClient
+
+    lateinit var firebaseDatabase: FirebaseDatabase
+    lateinit var firebaseReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +41,9 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, MainActivity::class.java))
         }
         auth = FirebaseAuth.getInstance()
+
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseReference = firebaseDatabase.getReference().child("user")
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN) //기본 로그인 방식 사용
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -65,6 +74,22 @@ class LoginActivity : AppCompatActivity() {
             if(email.isNotEmpty() && password.isNotEmpty()) {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                     if(it.isSuccessful) {
+                        val uid = auth.currentUser?.uid
+                        firebaseReference.child(uid!!).addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                val dataMap = snapshot.value as HashMap<String, Any>
+                                User.user.email = email
+                                User.user.name = dataMap.get("name").toString()
+                                User.user.lantern = dataMap.get("lantern").toString().toInt()
+                                User.user.streetlight = dataMap.get("streetlight")?.toString()?.toInt()
+                                User.user.steps = dataMap.get("steps")?.toString()?.toInt()
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                Log.d("LoginActivity", "fail to get data")
+                            }
+
+                        })
                         Toast.makeText(applicationContext, "Successfully Logged In", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
