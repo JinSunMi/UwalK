@@ -25,6 +25,10 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.upTxtSignIn.setOnClickListener {
+            finish()
+        }
+
         binding.upBtnSignUp.setOnClickListener {
             Toast.makeText(applicationContext, "button clicked", Toast.LENGTH_SHORT).show()
             val email = binding.upEditEmail.text.toString()

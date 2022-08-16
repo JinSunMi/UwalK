@@ -4,7 +4,9 @@ import com.mirim.uwalk.R
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mirim.uwalk.databinding.ActivityMainBinding
 
