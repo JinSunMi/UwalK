@@ -17,7 +17,7 @@
         android:src="@drawable/image_rank_background"
         android:scaleType="fitXY"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
@@ -26,75 +26,81 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/background_14dp"
-        android:backgroundTint="@color/white"
-        android:elevation="2dp" >
-        <ImageView
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:src="@drawable/sample_profile"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/image_rank_my_profile"
-            android:layout_marginTop="18dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sun-woo"
-            android:textColor="@color/gray1"
-            android:textSize="12sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_rank_my_profile"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="18dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RANK"
-            android:textSize="12sp"
-            android:textColor="@color/gray4"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/image_rank_my_profile"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="34dp"
-            android:id="@+id/txt_rank"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3"
-            android:textColor="@color/main"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/image_rank_my_profile"
-            app:layout_constraintTop_toBottomOf="@id/txt_rank"
-            android:layout_marginTop="4dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="STEPS"
-            android:textSize="12sp"
-            android:textColor="@color/gray4"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/image_rank_my_profile"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="34dp"
-            android:id="@+id/txt_steps"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="150000"
-            android:textColor="@color/main"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/image_rank_my_profile"
-            app:layout_constraintTop_toBottomOf="@id/txt_steps"
-            android:layout_marginTop="4dp"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/white"
+        app:cardElevation="7dp"
+        app:cardCornerRadius="14dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/sample_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:id="@+id/image_rank_my_profile"
+                android:layout_marginTop="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sun-woo"
+                android:textColor="@color/gray1"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image_rank_my_profile"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="18dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RANK"
+                android:textSize="12sp"
+                android:textColor="@color/gray4"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image_rank_my_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="34dp"
+                android:id="@+id/txt_rank"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@color/main"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/image_rank_my_profile"
+                app:layout_constraintTop_toBottomOf="@id/txt_rank"
+                android:layout_marginTop="4dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEPS"
+                android:textSize="12sp"
+                android:textColor="@color/gray4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image_rank_my_profile"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="34dp"
+                android:id="@+id/txt_steps"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="150000"
+                android:textColor="@color/main"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/image_rank_my_profile"
+                app:layout_constraintTop_toBottomOf="@id/txt_steps"
+                android:layout_marginTop="4dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

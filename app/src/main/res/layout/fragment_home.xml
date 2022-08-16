@@ -22,20 +22,18 @@
         android:layout_marginLeft="16dp"
         android:textStyle="bold"/>
 
-    <FrameLayout
-        android:layout_width="280dp"
-        android:layout_height="280dp"
+
+    <ProgressBar
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:layout_marginTop="130dp"
-        android:id="@+id/circle_main">
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/circle_main_gray"
-            android:id="@+id/circle_main_gray" />
-    </FrameLayout>
+        android:layout_marginTop="80dp"
+        android:id="@+id/circle_main"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/pb_circular_determinative"
+        android:progress="30" />
 
     <!--
     <View

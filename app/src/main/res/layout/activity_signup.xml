@@ -35,7 +35,8 @@
         android:id="@+id/up_edit_name"
         android:layout_marginRight="6dp"
         app:layout_constraintTop_toBottomOf="@id/up_txt_sign_up"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:maxLines="1"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -51,7 +52,9 @@
         android:paddingLeft="20dp"
         android:hint="Email"
         android:textColor="@color/black"
-        android:id="@+id/up_edit_email"/>
+        android:id="@+id/up_edit_email"
+        android:maxLines="1"
+        android:inputType="textEmailAddress" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +69,9 @@
         android:paddingLeft="20dp"
         android:hint="Password"
         android:textColor="@color/black"
-        android:id="@+id/up_edit_password"/>
+        android:id="@+id/up_edit_password"
+        android:maxLines="1"
+        android:inputType="textPassword" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,7 +86,9 @@
         android:paddingLeft="20dp"
         android:hint="Confirm Password"
         android:textColor="@color/black"
-        android:id="@+id/up_edit_confirm_password"/>
+        android:id="@+id/up_edit_confirm_password"
+        android:maxLines="1"
+        android:inputType="textPassword"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
