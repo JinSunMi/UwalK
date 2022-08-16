@@ -25,31 +25,53 @@ class SignupActivity : AppCompatActivity() {
         binding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        binding.upTxtSignIn.setOnClickListener {
+            finish()
+        }
 
         binding.upBtnSignUp.setOnClickListener {
             Toast.makeText(applicationContext, "button clicked", Toast.LENGTH_SHORT).show()
             val email = binding.upEditEmail.text.toString()
             val password = binding.upEditPassword.text.toString()
-            // val name = binding.upEditName.text.toString()
-            startSignUp(email, password)
+            val passwordConfirm = binding.upEditConfirmPassword.text.toString()
+            val name = binding.upEditName.text.toString()
+            if(email.isEmpty()) {
+                Toast.makeText(applicationContext, "please fill the email", Toast.LENGTH_SHORT).show()
+            }
+            else if(password.length < 8) {
+                Toast.makeText(applicationContext, "password should be longer than 8", Toast.LENGTH_SHORT).show()
+            }
+            else if(password.equals(passwordConfirm)) {
+                Toast.makeText(applicationContext, "password confirmation is not correct", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                startSignUp(email, password, name)
+            }
         }
     }
-    private fun startSignUp(email: String, password: String) {
+    private fun startSignUp(email: String, password: String, name: String) {
         auth = FirebaseAuth.getInstance()
         firebaseDatabase = FirebaseDatabase.getInstance()
-        firebaseReference = firebaseDatabase.getReference("user")
+        firebaseReference = firebaseDatabase.getReference()
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful) {
                 val user = auth.currentUser
                 val userEmail = user?.email
                 val userId = user!!.uid
-                val userName = binding.upEditName
 
+                firebaseReference = firebaseReference.child("user")
+                //firebaseReference.push().setValue(userId)
                 firebaseReference.child(userId).child("email").setValue(userEmail)
-                firebaseReference.child(userId).child("name").setValue("namename")
+                firebaseReference.child(userId).child("name").setValue(name)
+                firebaseReference.child(userId).child("steps").setValue(0)
+                firebaseReference.child(userId).child("lantern").setValue(0)
+                firebaseReference.child(userId).child("streetlight").setValue(0)
+
+                User.user.email = userEmail!!
+                User.user.name = name
 
                 Toast.makeText(applicationContext, "success", Toast.LENGTH_SHORT).show()
+                finish()
             }
             else {
                 Toast.makeText(applicationContext, "fail", Toast.LENGTH_SHORT).show()

@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/drawable/background_14dp.xml" value="0.105" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/drawable/circle_main_gray.xml" value="0.108" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/drawable/pb_circular_determinative.xml" value="0.2025" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/activity_login.xml" value="0.161231884057971" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/activity_main.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/activity_mypage.xml" value="0.1" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/activity_signup.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/fragment_donate.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/fragment_home.xml" value="0.12864583333333332" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/fragment_rank.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/hajin/JinSunMi/UwalK/app/src/main/res/layout/toolbar.xml" value="0.16394927536231885" />
         <entry key="..\:/Users/w2010/AndroidStudioProjects/UwalK/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1695" />
         <entry key="..\:/Users/w2010/AndroidStudioProjects/UwalK/app/src/main/res/drawable/background_26dp.xml" value="0.1" />
         <entry key="..\:/Users/w2010/AndroidStudioProjects/UwalK/app/src/main/res/drawable/background_black_26dp.xml" value="0.1" />

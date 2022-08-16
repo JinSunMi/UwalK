@@ -1,5 +1,6 @@
 package com.mirim.uwalk
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,9 @@ class RankFragment: Fragment() {
         binding = FragmentRankBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.toolbar.imageToolbarProfile.setOnClickListener {
+            startActivity(Intent(context, MypageActivity::class.java))
+        }
         return view
     }
 }
