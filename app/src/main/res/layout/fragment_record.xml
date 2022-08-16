@@ -32,5 +32,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         tools:itemCount="10"
-        tools:listitem="@layout/card_view_layout" />
+        tools:listitem="@layout/card_view_layout"
+        android:overScrollMode="never"/>
 </LinearLayout>
