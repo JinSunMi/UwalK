@@ -59,7 +59,7 @@ class RankFragment: Fragment() {
                     binding.txtRankMySteps.text = user.steps.toString()
                     binding.txtRankMyName.text = user.name
                 }
-                if(User.user.steps!! < user.steps!!) {
+                if(User.user!!.steps!! < user.steps!!) {
                     rank++;
                 }
                 binding.txtRankMyNumber.text = rank.toString()

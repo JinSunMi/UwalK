@@ -77,8 +77,8 @@ class LoginActivity : AppCompatActivity() {
                         firebaseReference.child(uid!!).addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 val dataMap = snapshot.value as HashMap<String, Any>
-                                User.user.email = email
                                 User.fetchUser(uid!!)
+                                User.user!!.email = email
                             }
 
                             override fun onCancelled(error: DatabaseError) {
@@ -86,6 +86,7 @@ class LoginActivity : AppCompatActivity() {
                             }
 
                         })
+
                         Toast.makeText(applicationContext, "Successfully Logged In", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this, StoryActivity::class.java)
                         startActivity(intent)
