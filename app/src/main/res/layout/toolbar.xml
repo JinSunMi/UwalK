@@ -30,7 +30,8 @@
             android:layout_height="28dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:id="@+id/image_toolbar_logo" />
+            android:id="@+id/image_toolbar_logo"
+            android:src="@drawable/icon_logo_main"/>
 
         <ImageView
             android:id="@+id/image_toolbar_profile"
@@ -39,8 +40,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="16dp"
-            android:src="@drawable/sample_profile"
-            android:background="@drawable/background_circle"/>
+            android:background="@drawable/background_circle"
+            android:src="@drawable/icon_person_main" />
     </RelativeLayout>
 
 

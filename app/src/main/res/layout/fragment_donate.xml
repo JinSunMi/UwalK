@@ -122,9 +122,14 @@
                     android:background="@drawable/background_26dp"
                     android:paddingLeft="27dp"
                     android:paddingRight="27dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
                     android:text="Donate"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent" />
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:enabled="false" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -176,11 +181,16 @@
                     android:background="@drawable/background_26dp"
                     android:paddingLeft="27dp"
                     android:paddingRight="27dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_marginLeft="16dp"
                     android:layout_marginBottom="24dp"
-                    android:id="@+id/btn_donate_streetlight"/>
+                    android:id="@+id/btn_donate_streetlight"
+                    android:enabled="false"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

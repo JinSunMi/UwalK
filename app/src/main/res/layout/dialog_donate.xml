@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Do you want to donate"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:layout_marginTop="17dp"
+        android:id="@+id/txt_donate_confirm" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txt_donate_confirm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="solar lantern"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:id="@+id/txt_donate_confirm_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        app:layout_constraintTop_toBottomOf="@+id/txt_donate_confirm_title"
+        android:layout_marginTop="38dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="NO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/main"
+        app:layout_constraintRight_toLeftOf="@id/btn_donate_confirm_yes"
+        android:id="@+id/btn_donate_confirm_no"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/background_main_4dp" />
+    <Button
+        android:layout_marginTop="38dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn_donate_confirm_no"
+        android:text="YES"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/main"
+        android:id="@+id/btn_donate_confirm_yes"
+        android:layout_marginLeft="7dp"
+        android:background="@drawable/background_main_4dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

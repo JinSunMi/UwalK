@@ -35,6 +35,9 @@ class RankFragment: Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
+        binding.toolbar.imageToolbarLogo.setImageResource(R.drawable.icon_logo_gray)
+        binding.toolbar.imageToolbarProfile.setImageResource(R.drawable.icon_person_gray)
+
         binding.toolbar.imageToolbarProfile.setOnClickListener {
             startActivity(Intent(context, MypageActivity::class.java))
         }
