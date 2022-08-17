@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -37,9 +39,6 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSignIn.setOnClickListener {
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-        }
         auth = FirebaseAuth.getInstance()
 
         firebaseDatabase = FirebaseDatabase.getInstance()
@@ -78,11 +77,8 @@ class LoginActivity : AppCompatActivity() {
                         firebaseReference.child(uid!!).addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
                                 val dataMap = snapshot.value as HashMap<String, Any>
-                                User.user.email = email
-                                User.user.name = dataMap.get("name").toString()
-                                User.user.lantern = dataMap.get("lantern").toString().toInt()
-                                User.user.streetlight = dataMap.get("streetlight")?.toString()?.toInt()
-                                User.user.steps = dataMap.get("steps")?.toString()?.toInt()
+                                User.fetchUser(uid!!)
+                                User.user!!.email = email
                             }
 
                             override fun onCancelled(error: DatabaseError) {
@@ -90,8 +86,9 @@ class LoginActivity : AppCompatActivity() {
                             }
 
                         })
+
                         Toast.makeText(applicationContext, "Successfully Logged In", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, MainActivity::class.java)
+                        val intent = Intent(this, StoryActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
@@ -120,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             ?.addOnCompleteListener {
                 if(it.isSuccessful) {
                     Toast.makeText(applicationContext, "Successfully Logged In", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                    startActivity(Intent(applicationContext, SignSelectActivity::class.java))
                     finish()
                 }
                 else {

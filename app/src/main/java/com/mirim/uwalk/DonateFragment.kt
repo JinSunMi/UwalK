@@ -53,6 +53,13 @@ class DonateFragment: Fragment() {
 
         val sharedPreferences = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
 
+        if(steps >= 100000) {
+            binding.btnDonateLantern.isEnabled = true
+        }
+        if(steps >= 200000) {
+            binding.btnDonateStreetlight.isEnabled = true
+        }
+
         val uid = auth.currentUser?.uid
         firebaseReference.child(uid!!).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -70,13 +77,22 @@ class DonateFragment: Fragment() {
             binding.gridSun.addView(makeSunView(i))
         }
 
+        binding.btnDonateLantern.setOnClickListener {
+            val dialog = DonateDialog("solar lantern?", "lantern")
+            dialog.show(requireActivity().supportFragmentManager, "confirm")
+        }
+        binding.btnDonateStreetlight.setOnClickListener {
+            val dialog = DonateDialog("street light?", "streetlight")
+            dialog.show(requireActivity().supportFragmentManager, "confirm")
+        }
+
         return view
     }
 
     fun makeSunView(i: Int): View {
         val sun = ImageView(context)
         // sun.layoutParams = ViewGroup.LayoutParams((36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt(), (36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt())
-        if(i < steps/500) {
+        if(i < steps/10000) {
             sun.setImageResource(R.drawable.icon_sun_solid_main)
         }
         else if(i == 9 || i == 19) {
@@ -90,6 +106,7 @@ class DonateFragment: Fragment() {
             GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f),
             GridLayout.spec(GridLayout.UNDEFINED, GridLayout.FILL, 1f)
         )
+        param.width = (36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
         param.height = (36 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
         // param.marginEnd = (14 * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
         param.setMargins(0, 0, 0, (14 * Resources.getSystem().displayMetrics.density + 0.5f).toInt())

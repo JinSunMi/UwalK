@@ -67,8 +67,8 @@ class SignupActivity : AppCompatActivity() {
                 firebaseReference.child(userId).child("lantern").setValue(0)
                 firebaseReference.child(userId).child("streetlight").setValue(0)
 
-                User.user.email = userEmail!!
-                User.user.name = name
+                User.user!!.email = userEmail!!
+                User.user!!.name = name
 
                 Toast.makeText(applicationContext, "success", Toast.LENGTH_SHORT).show()
                 finish()

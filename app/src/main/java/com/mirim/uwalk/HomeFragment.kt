@@ -53,6 +53,7 @@ class HomeFragment: Fragment(), SensorEventListener {
         val alarmMgr = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val intent = Intent(context, AlarmReceiver::class.java)
         val alarmIntent: PendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0)
+        intent.putExtra("steps", totalSteps)
 
         val calendar: Calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
