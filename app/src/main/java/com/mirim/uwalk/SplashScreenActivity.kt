@@ -18,4 +18,14 @@ class SplashScreenActivity : AppCompatActivity() {
             finish()
         },1500)
     }
+
+    override fun onStart() {
+        super.onStart()
+        Handler().postDelayed(Runnable {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
+        },1500)
+    }
 }
