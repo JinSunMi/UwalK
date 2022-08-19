@@ -40,6 +40,27 @@ class DonateDialog(var text: String, var type: String): DialogFragment() {
                         val data = mutableData.getValue(Int::class.java)
                             ?: return Transaction.success(mutableData)
                         mutableData.value = data + 1
+                        firebaseReference.child(uid!!).child("steps").runTransaction(object: Transaction.Handler {
+                            override fun doTransaction(mutableData: MutableData): Transaction.Result {
+                                val data = mutableData.getValue(Int::class.java)
+                                    ?: return Transaction.success(mutableData)
+                                if(type.equals("lantern")) {
+                                    mutableData.value = data - 100000
+                                }
+                                else {
+                                    mutableData.value = data - 200000
+                                }
+                                dialog?.dismiss()
+                                return Transaction.success(mutableData)
+                            }
+
+                            override fun onComplete(
+                                databaseError: DatabaseError?,
+                                b: Boolean,
+                                dataSnapshot: DataSnapshot?
+                            ) {
+                            }
+                        })
                         return Transaction.success(mutableData)
                     }
 
@@ -50,27 +71,7 @@ class DonateDialog(var text: String, var type: String): DialogFragment() {
                     ) {
                     }
                 })
-                firebaseReference.child(uid!!).child("steps").runTransaction(object: Transaction.Handler {
-                    override fun doTransaction(mutableData: MutableData): Transaction.Result {
-                        val data = mutableData.getValue(Int::class.java)
-                            ?: return Transaction.success(mutableData)
-                        if(type.equals("lantern")) {
-                            mutableData.value = data - 100000
-                        }
-                        else {
-                            mutableData.value = data - 200000
-                        }
-                        return Transaction.success(mutableData)
-                    }
 
-                    override fun onComplete(
-                        databaseError: DatabaseError?,
-                        b: Boolean,
-                        dataSnapshot: DataSnapshot?
-                    ) {
-                    }
-                })
-                dialog?.dismiss()
             }
 
             binding.btnDonateConfirmNo.setOnClickListener {

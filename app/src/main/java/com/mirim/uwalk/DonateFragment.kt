@@ -53,18 +53,41 @@ class DonateFragment: Fragment() {
 
         val sharedPreferences = requireActivity().getSharedPreferences("pref", Context.MODE_PRIVATE)
 
-        if(steps >= 100000) {
-            binding.btnDonateLantern.isEnabled = true
-        }
-        if(steps >= 200000) {
-            binding.btnDonateStreetlight.isEnabled = true
-        }
-
         val uid = auth.currentUser?.uid
         firebaseReference.child(uid!!).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val dataMap = snapshot.value as HashMap<String, Any>
-                binding.txtTotalStep.text = (dataMap.get("steps").toString().toInt() + sharedPreferences.getFloat("key1", 0f).toInt()).toString()
+                if(context != null && isAdded) {
+
+                    steps = (dataMap.get("steps").toString().toInt() + sharedPreferences.getFloat("key1", 0f).toInt())
+                    binding.txtTotalStep.text = steps.toString()
+
+                    if(steps >= 100000) {
+                        binding.btnDonateLantern.isEnabled = true
+                    }
+                    else {
+                        binding.btnDonateLantern.isEnabled = false
+                    }
+                    if(steps >= 200000) {
+                        binding.btnDonateStreetlight.isEnabled = true
+                    }
+                    else {
+                        binding.btnDonateStreetlight.isEnabled = false
+                    }
+                    binding.gridSun.removeAllViews()
+                    for(i in 0 until 20) {
+                        binding.gridSun.addView(makeSunView(i))
+                    }
+                    binding.btnDonateLantern.setOnClickListener {
+                        val dialog = DonateDialog("solar lantern?", "lantern")
+                        dialog.show(requireActivity().supportFragmentManager, "confirm")
+                    }
+                    binding.btnDonateStreetlight.setOnClickListener {
+                        val dialog = DonateDialog("street light?", "streetlight")
+                        dialog.show(requireActivity().supportFragmentManager, "confirm")
+                    }
+                }
+
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -73,18 +96,9 @@ class DonateFragment: Fragment() {
 
         })
 
-        for(i in 0 until 20) {
-            binding.gridSun.addView(makeSunView(i))
-        }
 
-        binding.btnDonateLantern.setOnClickListener {
-            val dialog = DonateDialog("solar lantern?", "lantern")
-            dialog.show(requireActivity().supportFragmentManager, "confirm")
-        }
-        binding.btnDonateStreetlight.setOnClickListener {
-            val dialog = DonateDialog("street light?", "streetlight")
-            dialog.show(requireActivity().supportFragmentManager, "confirm")
-        }
+
+
 
         return view
     }

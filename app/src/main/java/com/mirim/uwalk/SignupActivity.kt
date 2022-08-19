@@ -1,5 +1,6 @@
 package com.mirim.uwalk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,7 +31,6 @@ class SignupActivity : AppCompatActivity() {
         }
 
         binding.upBtnSignUp.setOnClickListener {
-            Toast.makeText(applicationContext, "button clicked", Toast.LENGTH_SHORT).show()
             val email = binding.upEditEmail.text.toString()
             val password = binding.upEditPassword.text.toString()
             val passwordConfirm = binding.upEditConfirmPassword.text.toString()
@@ -41,7 +41,7 @@ class SignupActivity : AppCompatActivity() {
             else if(password.length < 8) {
                 Toast.makeText(applicationContext, "password should be longer than 8", Toast.LENGTH_SHORT).show()
             }
-            else if(password.equals(passwordConfirm)) {
+            else if(!password.equals(passwordConfirm)) {
                 Toast.makeText(applicationContext, "password confirmation is not correct", Toast.LENGTH_SHORT).show()
             }
             else {
@@ -71,6 +71,7 @@ class SignupActivity : AppCompatActivity() {
                 User.user!!.name = name
 
                 Toast.makeText(applicationContext, "success", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(applicationContext, LoginActivity::class.java))
                 finish()
             }
             else {

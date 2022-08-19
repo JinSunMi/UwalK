@@ -24,22 +24,18 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId) {
                 R.id.page_home -> {
                     supportFragmentManager.beginTransaction().replace(binding.frame.id, HomeFragment()).commit()
-                    Toast.makeText(applicationContext, "home", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.page_donate -> {
                     supportFragmentManager.beginTransaction().replace(binding.frame.id, DonateFragment()).commit()
-                    Toast.makeText(applicationContext, "donate", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.page_rank -> {
                     supportFragmentManager.beginTransaction().replace(binding.frame.id, RankFragment()).commit()
-                    Toast.makeText(applicationContext, "rank", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.page_record -> {
                     supportFragmentManager.beginTransaction().replace(binding.frame.id, RecordFragment()).commit()
-                    Toast.makeText(applicationContext, "record", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false
